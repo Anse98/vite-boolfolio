@@ -1,10 +1,12 @@
 <template>
-    <div class="container">
-        <h1>I Progetti</h1>
-    </div>
+    <div class="container py-5">
+        <div class="text-center">
+            <h1 class="color-red ">I Progetti</h1>
+        </div>
 
-    <div class="container d-flex">
-        <ProjectCard v-for="project in projects" :project="project" :key="project.id" />
+        <div class="d-flex gap-4 flex-wrap py-4 justify-content-center">
+            <ProjectCard v-for="project in projects" :project="project" :key="project.id" />
+        </div>
     </div>
 </template>
   
@@ -41,14 +43,8 @@ export default {
 </script>
   
 <style lang="scss" scoped >
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.d-flex {
-    display: flex;
-    flex-wrap: wrap;
+.bg-dark-grey {
+    background-color: #121212;
 }
 </style>
   
