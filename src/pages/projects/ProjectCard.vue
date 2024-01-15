@@ -2,7 +2,18 @@
     <div class="card">
         <div class="card-content">
             <h3 class="title">{{ project.title }}</h3>
+            <figure>
+                <img :src="'http://127.0.0.1:8000/storage/' + project.thumb" alt="" class="img">
+            </figure>
             <p class="description">{{ project.description }}</p>
+            <p class="types" v-if="project.type"> {{ project.type.name }}</p>
+            <p v-if="project.technologies.length > 0" class="technologies">
+                <span v-for="technology in project.technologies">{{ technology.name }}
+                </span>
+            </p>
+            <p v-else>
+                Nessuna tecnologia associata
+            </p>
         </div>
     </div>
 </template>
@@ -30,6 +41,29 @@ export default {
 
     .title {
         margin-bottom: 12px;
+    }
+
+    .description {
+        margin-bottom: 16px;
+    }
+
+    .types {
+        margin-bottom: 12px;
+    }
+
+    .technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    figure {
+        display: flex;
+        justify-content: center;
+    }
+
+    .img {
+        max-width: 200px;
     }
 }
 </style>
