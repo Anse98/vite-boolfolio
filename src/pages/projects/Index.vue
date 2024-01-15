@@ -3,17 +3,18 @@
         <h1>I Progetti</h1>
     </div>
 
-    <div class="container">
-        <p v-for="project in projects">{{ project.title }}</p>
+    <div class="container d-flex">
+        <ProjectCard v-for="project in projects" :project="project" :key="project.id" />
     </div>
 </template>
   
 <script>
 import axios from 'axios';
+import ProjectCard from './ProjectCard.vue';
 
 export default {
     components: {
-
+        ProjectCard,
     },
 
     data() {
@@ -39,10 +40,15 @@ export default {
 }
 </script>
   
-<style scoped lang="scss">
+<style lang="scss" scoped >
 .container {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.d-flex {
+    display: flex;
+    flex-wrap: wrap;
 }
 </style>
   
