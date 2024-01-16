@@ -4,7 +4,10 @@
         <img v-else src="/src/images/no-image.jpg" alt="">
 
         <div class="card-body text-center">
-            <h5 class="card-title color-red">{{ project.title }}</h5>
+            <h5 class="card-title"><router-link :to="{ name: 'projects.show', params: { slug: project.slug } }"
+                    class="color-red text-decoration-none">{{
+                        project.title }}</router-link>
+            </h5>
             <p class="card-text text-white-50"><i>{{ project.description }}</i></p>
         </div>
 

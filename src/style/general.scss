@@ -1,13 +1,13 @@
 @import '../../node_modules/bootstrap/scss/bootstrap';
 
-.color-red {
-    color: #DF6247;
-}
-
 ul,
 li,
 ol {
     list-style: none;
+}
+
+.color-red {
+    color: #DF6247;
 }
 
 .color-light-grey {
@@ -24,4 +24,8 @@ ol {
     &:hover {
         background-color: #1f202386;
     }
+}
+
+.bg-dark-grey {
+    background-color: #121212;
 }

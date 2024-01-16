@@ -1,12 +1,16 @@
 <template>
-    <div class="container py-5">
+    <div class="container py-5" v-if="projects.length > 0">
         <div class="text-center pb-5">
             <h1 class="color-red ">I nostri Progetti</h1>
         </div>
 
-        <div class="d-flex gap-4 flex-wrap py-4 justify-content-center">
+        <div class="d-flex gap-5 flex-wrap py-4 justify-content-center">
             <ProjectCard v-for="project in projects" :project="project" :key="project.id" />
         </div>
+    </div>
+
+    <div class="container spinner-container pt-5" v-else>
+        <div class="spinner"></div>
     </div>
 </template>
   
@@ -44,5 +48,29 @@ export default {
 <style lang="scss" scoped >
 .bg-dark-grey {
     background-color: #121212;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #dedede;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 </style>
