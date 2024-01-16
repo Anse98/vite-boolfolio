@@ -1,0 +1,24 @@
+<script>
+export default {
+
+}
+</script>
+
+
+<template>
+    <section>
+        <div class="container py-5 text-center text-white-50 ">
+            <div class="border-end border-start border-secondary">
+                <img src="/src/images/404.jpg" alt="" class="w-75 ">
+            </div>
+        </div>
+        <div class="container text-center text-white-50 ">
+            <p>Sembra che la pagina che stai cercando non esista più :(</p>
+            <router-link class="btn btn-sm main-btn-background text-light" :to="{ name: 'home' }">Torna alla
+                Home</router-link>
+        </div>
+    </section>
+</template>
+
+
+<style scoped lang="scss"></style>

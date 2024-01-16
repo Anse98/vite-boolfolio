@@ -4,6 +4,7 @@ import Home from './pages/Home.vue';
 import Contact from './pages/Contact.vue';
 import Portfolio from './pages/projects/Portfolio.vue';
 import Show from './pages/projects/Show.vue';
+import Page404 from './pages/404.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -31,6 +32,13 @@ const router = createRouter({
             path: '/project/:slug',
             name: 'projects.show',
             component: Show
+        },
+
+        //MODO PER DEFINIRE PATH NOT FOUND
+        {
+            path: '/:patchMatch(.*)*',
+            name: 'not-found',
+            component: Page404
         }
     ]
 })

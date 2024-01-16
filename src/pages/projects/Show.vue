@@ -14,6 +14,10 @@ export default {
             axios.get(`${this.base_url}/projects/${this.$route.params.slug}`).then(res => {
                 this.project = res.data.project
                 console.log(this.project)
+            }).catch(error => {
+                if (error.response.status === 404) {
+                    this.$router.push({ name: 'not-found' })
+                }
             })
         },
 
