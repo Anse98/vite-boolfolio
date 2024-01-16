@@ -1,7 +1,7 @@
 <template>
     <div class="container py-5">
-        <div class="text-center">
-            <h1 class="color-red ">I Progetti</h1>
+        <div class="text-center pb-5">
+            <h1 class="color-red ">I nostri Progetti</h1>
         </div>
 
         <div class="d-flex gap-4 flex-wrap py-4 justify-content-center">
@@ -12,7 +12,7 @@
   
 <script>
 import axios from 'axios';
-import ProjectCard from './ProjectCard.vue';
+import ProjectCard from '../../components/ProjectCard.vue';
 
 export default {
     components: {
@@ -29,7 +29,6 @@ export default {
     methods: {
         fetchProjects() {
             axios.get(`${this.base_url}/projects`).then((res) => {
-                console.log(res.data.projects);
                 this.projects = res.data.projects;
             })
         }
@@ -47,4 +46,3 @@ export default {
     background-color: #121212;
 }
 </style>
-  

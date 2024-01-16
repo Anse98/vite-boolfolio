@@ -1,3 +1,27 @@
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
 .color-red {
     color: #DF6247;
+}
+
+ul,
+li,
+ol {
+    list-style: none;
+}
+
+.color-light-grey {
+    color: rgb(183, 180, 180);
+}
+
+.color-grey {
+    color: gray;
+}
+
+.main-btn-background {
+    background-color: #1F2023;
+
+    &:hover {
+        background-color: #1f202386;
+    }
 }

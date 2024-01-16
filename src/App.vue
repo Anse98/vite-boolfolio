@@ -1,10 +1,8 @@
 <script>
-import ProjectIndex from './pages/projects/Index.vue';
 import PageHeader from './components/PageHeader.vue';
 
 export default {
   components: {
-    ProjectIndex,
     PageHeader
   }
 }
@@ -13,8 +11,7 @@ export default {
 <template>
   <!-- Header -->
   <PageHeader />
-  <!-- Pagina progetti -->
-  <ProjectIndex />
+  <router-view></router-view>
 </template>
 
 <style lang="scss">
