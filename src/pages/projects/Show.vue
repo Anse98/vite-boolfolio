@@ -9,11 +9,14 @@ export default {
         }
     },
 
+    watch: {
+        '$route.params.slug': 'fetchSinglePost'
+    },
+
     methods: {
         fetchSinglePost() {
             axios.get(`${this.base_url}/projects/${this.$route.params.slug}`).then(res => {
                 this.project = res.data.project
-                this.project_id = res.data.project.id
                 console.log(res.data)
             }).catch(error => {
                 if (error.response.status === 404) {
@@ -30,17 +33,13 @@ export default {
                 day: 'numeric'
             });
             // console.log(date)
-        }
+        },
     },
 
     created() {
         this.fetchSinglePost();
         this.formatDate()
     },
-
-    mounted() {
-
-    }
 }
 </script>
 
@@ -49,6 +48,8 @@ export default {
     <section>
         <!-- SINGOLO PROGETTO -->
         <div class="container d-flex justify-content-center py-5" v-if="project">
+
+            <!-- Card -->
             <div class="card bg-dark-grey border-secondary" style="width: 36rem;">
                 <img v-if="project.thumb" :src="'http://127.0.0.1:8000/storage/' + project.thumb" class="card-img-top"
                     alt="...">
@@ -106,8 +107,10 @@ export default {
             </div>
 
             <div class="container d-flex flex-wrap justify-content-center gap-5 py-5">
-                <div v-for="project in project.type.projects.slice(1)" :key="project.id"
-                    class="card bg-dark-grey border-secondary" style="width: 20rem;">
+
+                <!-- Card -->
+                <div v-for="project in project.type.projects" :key="project.id" class="card bg-dark-grey border-secondary"
+                    style="width: 20rem;">
                     <img v-if="project.thumb" :src="'http://127.0.0.1:8000/storage/' + project.thumb" class="card-img-top"
                         alt="...">
                     <img v-else src="/src/images/no-image.jpg" alt="">
@@ -140,6 +143,12 @@ export default {
 
                     <div class="card-body">
                         <p class="mb-0 text-light text-center"><b>{{ this.formatDate(project.created_at) }}</b>
+                        </p>
+                    </div>
+
+                    <div class="card-body">
+                        <p class="mb-0 text-light text-center">
+                            <router-link :to="{ name: 'projects.show', params: { slug: project.slug } }">VAI</router-link>
                         </p>
                     </div>
                 </div>
