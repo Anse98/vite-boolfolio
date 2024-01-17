@@ -34,6 +34,12 @@ export default {
             });
             // console.log(date)
         },
+
+        scrollToTop() {
+            window.scrollTo({
+                top: 0,
+            });
+        },
     },
 
     created() {
@@ -141,16 +147,17 @@ export default {
                         </div>
                     </div>
 
-                    <div class="card-body">
+                    <div class="py-2">
                         <p class="mb-0 text-light text-center"><b>{{ this.formatDate(project.created_at) }}</b>
                         </p>
                     </div>
 
-                    <div class="card-body">
-                        <p class="mb-0 text-light text-center">
-                            <router-link :to="{ name: 'projects.show', params: { slug: project.slug } }">VAI</router-link>
-                        </p>
+                    <div class="py-2 border-top border-secondary d-flex justify-content-center ">
+                        <router-link :to="{ name: 'projects.show', params: { slug: project.slug } }"
+                            class="text-decoration-none btn btn-sm text-light main-btn-background"
+                            @click="scrollToTop()">Vedi</router-link>
                     </div>
+
                 </div>
             </div>
         </div>
