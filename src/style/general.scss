@@ -29,3 +29,12 @@ ol {
 .bg-dark-grey {
     background-color: #121212;
 }
+
+.shadow-btn {
+    -webkit-box-shadow: 4px -2px 4px -1px rgba(41, 41, 41, 0.9);
+    box-shadow: 4px -2px 4px -1px rgba(41, 41, 41, 0.9);
+}
+
+.type-width {
+    width: 20px;
+}
