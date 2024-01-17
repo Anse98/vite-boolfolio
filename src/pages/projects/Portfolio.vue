@@ -1,7 +1,7 @@
 <template>
     <div class="container py-5" v-if="projects.length > 0">
-        <div class="text-center pb-5">
-            <h1 class="color-red ">I nostri Progetti</h1>
+        <div class="pb-5 d-flex justify-content-center text-center">
+            <h1 class="color-red title w-50">I nostri Progetti <font-awesome-icon icon="fa-solid fa-book-open" /></h1>
         </div>
 
         <div class="d-flex gap-5 flex-wrap py-4 justify-content-center">
@@ -16,6 +16,7 @@
   
 <script>
 import axios from 'axios';
+import { store } from '../../store';
 import ProjectCard from '../../components/ProjectCard.vue';
 
 export default {
@@ -26,13 +27,13 @@ export default {
     data() {
         return {
             projects: [],
-            base_url: 'http://127.0.0.1:8000/api'
+            store: store
         }
     },
 
     methods: {
         fetchProjects() {
-            axios.get(`${this.base_url}/projects`).then((res) => {
+            axios.get(`${store.base_url}/projects`).then((res) => {
                 this.projects = res.data.projects;
             })
         }
@@ -72,5 +73,10 @@ export default {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.title {
+    -webkit-box-shadow: 0px 8px 5px -3px #000000;
+    box-shadow: 0px 8px 5px -3px #000000;
 }
 </style>

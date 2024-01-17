@@ -1,8 +1,7 @@
 <template>
     <router-link class="text-decoration-none d-flex" :to="{ name: 'projects.show', params: { slug: project.slug } }">
         <div class="card bg-dark-grey border-secondary" style="width: 18rem;">
-            <img v-if="project.thumb" :src="'http://127.0.0.1:8000/storage/' + project.thumb" class="card-img-top"
-                alt="...">
+            <img v-if="project.thumb" :src="store.start_url_image + project.thumb" class="card-img-top" alt="...">
             <img v-else src="/src/images/no-image.jpg" alt="">
 
             <div class="card-body text-center">
@@ -30,36 +29,36 @@
                     <p class="mb-0"><b>Nessuna tecnologia associata</b></p>
                 </div>
             </div>
-
-            <!-- <div class="card-body">
-            <a href="#" class="card-link"></a>
-            <a href="#" class="card-link"></a>
-        </div> -->
         </div>
     </router-link>
 </template>
 
 <script>
+import { store } from '../store';
+
 export default {
     props: {
         project: {
             type: Object,
             required: true
         }
+    },
+
+    data() {
+        return {
+            store: store
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.color-red {
-    color: #DF6247;
-}
-
-.bg-dark-grey {
-    background-color: #121212;
-}
-
 .list-group-item {
     border-color: gray;
+}
+
+.card {
+    -webkit-box-shadow: 5px 1px 5px 5px #000000;
+    box-shadow: 5px 1px 5px 5px #000000;
 }
 </style>

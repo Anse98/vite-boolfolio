@@ -3,24 +3,24 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="header-image">
-                    <img class="header-logo" src="/src/images/header-logo.png" alt="">
+                    <router-link :to="{ name: 'home' }" class="text-decoration-none color-light-grey">
+                        <img class="header-logo" src="/src/images/header-logo.png" alt="">
+                    </router-link>
                 </div>
                 <nav>
                     <ul class="d-flex gap-3">
-                        <li>
-                            <router-link :to="{ name: 'home' }" class="text-decoration-none color-light-grey"><b>Home</b>
-                            </router-link>
-                        </li>
 
                         <li>
                             <router-link :to="{ name: 'projects.index' }"
-                                class="text-decoration-none color-light-grey"><b>Portfolio</b>
+                                class="text-decoration-none color-light-grey"><b>Portfolio <font-awesome-icon
+                                        icon="fa-solid fa-sheet-plastic" /></b>
                             </router-link>
                         </li>
 
                         <li>
                             <router-link :to="{ name: 'contact' }"
-                                class="text-decoration-none color-light-grey"><b>Contattaci</b>
+                                class="text-decoration-none color-light-grey"><b>Contattaci <font-awesome-icon
+                                        icon="fa-solid fa-phone-volume" /></b>
                             </router-link>
                         </li>
                     </ul>

@@ -1,11 +1,12 @@
 <script>
 import axios from 'axios';
+import { store } from '../../store.js';
 
 export default {
     data() {
         return {
             project: null,
-            base_url: 'http://127.0.0.1:8000/api',
+            store: store
         }
     },
 
@@ -15,9 +16,8 @@ export default {
 
     methods: {
         fetchSinglePost() {
-            axios.get(`${this.base_url}/projects/${this.$route.params.slug}`).then(res => {
+            axios.get(`${store.base_url}/projects/${this.$route.params.slug}`).then(res => {
                 this.project = res.data.project
-                console.log(res.data)
             }).catch(error => {
                 if (error.response.status === 404) {
                     this.$router.push({ name: 'not-found' })
@@ -32,7 +32,6 @@ export default {
                 month: 'numeric',
                 day: 'numeric'
             });
-            // console.log(date)
         },
 
         scrollToTop() {
@@ -104,13 +103,16 @@ export default {
 
         <div v-if="project?.type && project.type.projects.length > 1" class="container py-5">
 
-            <div class="d-flex gap-2 justify-content-center">
-                <h2 class="color-red">Altri progetti di tipo </h2>
-                <h4><span class="badge text-light main-btn-background shadow-btn">
-                        {{ project.type.name }}
-                    </span>
-                </h4>
+            <div class="d-flex justify-content-center">
+                <div class="d-flex gap-2 justify-content-center title w-50 mb-5">
+                    <h2 class="color-red ">Altri progetti di tipo </h2>
+                    <h4><span class="badge text-light main-btn-background shadow-btn">
+                            {{ project.type.name }}
+                        </span>
+                    </h4>
+                </div>
             </div>
+
 
             <div class="container d-flex flex-wrap justify-content-center gap-5 py-5">
 
@@ -155,7 +157,7 @@ export default {
                     <div class="py-2 border-top border-secondary d-flex justify-content-center ">
                         <router-link :to="{ name: 'projects.show', params: { slug: project.slug } }"
                             class="text-decoration-none btn btn-sm text-light main-btn-background"
-                            @click="scrollToTop()">Vedi</router-link>
+                            @click="scrollToTop()"><font-awesome-icon icon="fa-solid fa-eye" /></router-link>
                     </div>
 
                 </div>
@@ -192,5 +194,15 @@ export default {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.card {
+    -webkit-box-shadow: 5px 1px 5px 5px #000000;
+    box-shadow: 5px 1px 5px 5px #000000;
+}
+
+.title {
+    -webkit-box-shadow: 0px 8px 5px -3px #000000;
+    box-shadow: 0px 8px 5px -3px #000000;
 }
 </style>
