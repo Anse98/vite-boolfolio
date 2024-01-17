@@ -127,7 +127,7 @@ export default {
                         </div>
 
                         <!-- Tecnologie del progetto-->
-                        <!-- <div v-if="project.technologies.length > 0"
+                        <div v-if="project.technologies.length > 0"
                             class="list-group-item d-flex justify-content-center gap-2 flex-wrap bg-dark-grey text-light">
                             <span v-for="technology in project.technologies" class="badge rounded-pill text-bg-dark"><b>{{
                                 technology.name }}</b>
@@ -135,7 +135,7 @@ export default {
                         </div>
                         <div v-else class="list-group-item d-flex justify-content-center bg-dark-grey text-light">
                             <p class="mb-0"><b>Nessuna tecnologia associata</b></p>
-                        </div> -->
+                        </div>
                     </div>
 
                     <div class="card-body">
