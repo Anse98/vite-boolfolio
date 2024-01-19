@@ -5,6 +5,7 @@ import Contact from './pages/Contact.vue';
 import Portfolio from './pages/projects/Portfolio.vue';
 import Show from './pages/projects/Show.vue';
 import Page404 from './pages/404.vue';
+import Types from './pages/project_types/Types.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -34,7 +35,13 @@ const router = createRouter({
             component: Show
         },
 
-        //MODO PER DEFINIRE PATH NOT FOUND
+        {
+            path: '/types',
+            name: 'types.index',
+            component: Types
+        },
+
+        //MODO PER DEFINIRE PATH NOT FOUND, SEMPRE IN FONDO
         {
             path: '/:patchMatch(.*)*',
             name: 'not-found',

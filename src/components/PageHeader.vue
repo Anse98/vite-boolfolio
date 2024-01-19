@@ -12,15 +12,22 @@
 
                         <li>
                             <router-link :to="{ name: 'projects.index' }"
-                                class="text-decoration-none color-light-grey"><b>Portfolio <font-awesome-icon
-                                        icon="fa-solid fa-sheet-plastic" /></b>
+                                class="text-decoration-none color-light-grey"><b>Portfolio
+                                    <font-awesome-icon icon="fa-solid fa-sheet-plastic" /></b>
+                            </router-link>
+                        </li>
+
+                        <li>
+                            <router-link :to="{ name: 'types.index' }" class="text-decoration-none color-light-grey"><b>Tipi
+                                    di Progetto
+                                    <font-awesome-icon icon="fa-solid fa-paperclip" /></b>
                             </router-link>
                         </li>
 
                         <li>
                             <router-link :to="{ name: 'contact' }"
-                                class="text-decoration-none color-light-grey"><b>Contattaci <font-awesome-icon
-                                        icon="fa-solid fa-phone-volume" /></b>
+                                class="text-decoration-none color-light-grey"><b>Contattaci
+                                    <font-awesome-icon icon="fa-solid fa-phone-volume" /></b>
                             </router-link>
                         </li>
                     </ul>
@@ -32,7 +39,15 @@
   
 <script>
 export default {
+    data() {
+        return {
 
+        }
+    },
+
+    methods: {
+
+    },
 }
 </script>
   

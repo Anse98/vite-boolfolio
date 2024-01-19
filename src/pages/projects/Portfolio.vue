@@ -51,32 +51,5 @@ export default {
     background-color: #121212;
 }
 
-.spinner-container {
-    display: flex;
-    justify-content: center;
-}
 
-.spinner {
-    border: 4px solid rgba(0, 0, 0, 0.3);
-    border-radius: 50%;
-    border-top: 4px solid #dedede;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.title {
-    -webkit-box-shadow: 0px 8px 5px -3px #000000;
-    box-shadow: 0px 8px 5px -3px #000000;
-}
 </style>

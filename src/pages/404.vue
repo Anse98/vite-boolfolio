@@ -13,9 +13,10 @@ export default {
             </div>
         </div>
         <div class="container text-center text-white-50 ">
-            <p>Sembra che la pagina che stai cercando non esista più :(</p>
-            <router-link class="btn btn-sm main-btn-background text-light" :to="{ name: 'home' }">Torna alla
-                Home</router-link>
+            <p>Sembra che la pagina che stai cercando non esista più <font-awesome-icon icon="fa-solid fa-face-sad-tear" />
+            </p>
+            <router-link class="btn btn-sm main-btn-background text-light" :to="{ name: 'home' }"><font-awesome-icon
+                    icon="fa-solid fa-house" /></router-link>
         </div>
     </section>
 </template>

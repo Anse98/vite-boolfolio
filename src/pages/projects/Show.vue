@@ -70,7 +70,9 @@ export default {
                 <div class="list-group list-group-flush ">
                     <!-- Tipi di progetto-->
                     <div v-if="project.type" class="list-group-item d-flex justify-content-center bg-dark-grey text-white">
-                        <span class="badge border"><b>{{ project.type.name }}</b></span>
+                        <router-link :to="{ name: 'types.index' }">
+                            <span class="badge border"><b>{{ project.type.name }}</b></span>
+                        </router-link>
                     </div>
                     <div v-else class="list-group-item d-flex justify-content-center bg-dark-grey text-light">
                         <p class="mb-0"><b>Nessun tipo di progetto associato</b></p>
@@ -132,8 +134,7 @@ export default {
 
                     <div class="list-group list-group-flush ">
                         <!-- Tipi di progetto-->
-                        <div v-if="project.type"
-                            class="list-group-item d-flex justify-content-center bg-dark-grey text-white">
+                        <div v-if="project.type" class="list-group-item d-flex justify-content-center bg-dark-grey">
                             <span class="badge border"><b>{{ project.type.name }}</b></span>
                         </div>
 
@@ -157,9 +158,9 @@ export default {
                     <div class="py-2 border-top border-secondary d-flex justify-content-center ">
                         <router-link :to="{ name: 'projects.show', params: { slug: project.slug } }"
                             class="text-decoration-none btn btn-sm text-light main-btn-background"
-                            @click="scrollToTop()"><font-awesome-icon icon="fa-solid fa-eye" /></router-link>
+                            @click="scrollToTop()"><font-awesome-icon icon="fa-solid fa-eye" />
+                        </router-link>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -194,15 +195,5 @@ export default {
     100% {
         transform: rotate(360deg);
     }
-}
-
-.card {
-    -webkit-box-shadow: 5px 1px 5px 5px #000000;
-    box-shadow: 5px 1px 5px 5px #000000;
-}
-
-.title {
-    -webkit-box-shadow: 0px 8px 5px -3px #000000;
-    box-shadow: 0px 8px 5px -3px #000000;
 }
 </style>
