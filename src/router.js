@@ -41,6 +41,7 @@ const router = createRouter({
             component: Types
         },
 
+
         //MODO PER DEFINIRE PATH NOT FOUND, SEMPRE IN FONDO
         {
             path: '/:patchMatch(.*)*',

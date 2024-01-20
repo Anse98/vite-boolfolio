@@ -2,7 +2,7 @@
     <router-link class="text-decoration-none d-flex" :to="{ name: 'projects.show', params: { slug: project.slug } }">
         <div class="card bg-dark-grey border-secondary" style="width: 18rem;">
             <img v-if="project.thumb" :src="store.start_url_image + project.thumb" class="card-img-top" alt="...">
-            <img v-else src="/src/images/no-image.jpg" alt="">
+            <img v-else src="/src/images/no-image.jpg" alt="" class="card-img-top">
 
             <div class="card-body text-center">
                 <h5 class="card-title color-red">{{ project.title }}</h5>

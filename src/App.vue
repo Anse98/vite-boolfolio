@@ -9,7 +9,6 @@ export default {
 </script>
 
 <template>
-  <!-- Header -->
   <PageHeader />
   <router-view></router-view>
 </template>

@@ -3,9 +3,9 @@ import App from './App.vue'
 import { router } from './router'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faSheetPlastic, faPhoneVolume, faSatellite, faBook, faBookOpen, faEye, faPaperclip, faFaceSadTear, faHouse, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { faSheetPlastic, faPhoneVolume, faSatellite, faBook, faBookOpen, faEye, faPaperclip, faFaceSadTear, faHouse, faEyeSlash, faHandPointRight, faHandPointLeft, faMinus } from '@fortawesome/free-solid-svg-icons'
 
 
-library.add(faSheetPlastic, faPhoneVolume, faSatellite, faBook, faBookOpen, faEye, faPaperclip, faFaceSadTear, faHouse, faEyeSlash)
+library.add(faSheetPlastic, faPhoneVolume, faSatellite, faBook, faBookOpen, faEye, faPaperclip, faFaceSadTear, faHouse, faEyeSlash, faHandPointRight, faHandPointLeft, faMinus)
 
 createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')

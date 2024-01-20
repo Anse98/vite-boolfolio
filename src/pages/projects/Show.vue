@@ -58,7 +58,7 @@ export default {
             <div class="card bg-dark-grey border-secondary" style="width: 36rem;">
                 <img v-if="project.thumb" :src="'http://127.0.0.1:8000/storage/' + project.thumb" class="card-img-top"
                     alt="...">
-                <img v-else src="/src/images/no-image.jpg" alt="">
+                <img v-else src="/src/images/no-image.jpg" alt="" class="card-img-top">
 
                 <div class="card-body text-center">
                     <h5 class="card-title color-red text-decoration-none">
@@ -123,7 +123,7 @@ export default {
                     style="width: 20rem;">
                     <img v-if="project.thumb" :src="'http://127.0.0.1:8000/storage/' + project.thumb" class="card-img-top"
                         alt="...">
-                    <img v-else src="/src/images/no-image.jpg" alt="">
+                    <img v-else src="/src/images/no-image.jpg" alt="" class="card-img-top">
 
                     <div class="card-body text-center">
                         <h5 class="card-title color-red text-decoration-none">
