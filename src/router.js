@@ -6,6 +6,7 @@ import Portfolio from './pages/projects/Portfolio.vue';
 import Show from './pages/projects/Show.vue';
 import Page404 from './pages/404.vue';
 import Types from './pages/project_types/Types.vue';
+import NoProjects from './pages/projects/NoProjects.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -39,6 +40,12 @@ const router = createRouter({
             path: '/types',
             name: 'types.index',
             component: Types
+        },
+
+        {
+            path: '/projects-not-found',
+            name: 'noprojects',
+            component: NoProjects
         },
 
 

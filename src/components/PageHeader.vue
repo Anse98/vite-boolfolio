@@ -4,7 +4,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div class="header-image">
                     <router-link :to="{ name: 'home' }" class="text-decoration-none color-light-grey">
-                        <img class="header-logo" src="/src/images/header-logo.png" alt="">
+                        <img class="header-logo" src="/src/images/logo-projects.png" alt="">
                     </router-link>
                 </div>
                 <nav>
@@ -60,7 +60,7 @@ header {
 }
 
 .header-logo {
-    width: 150px;
+    width: 200px;
 }
 </style>
   

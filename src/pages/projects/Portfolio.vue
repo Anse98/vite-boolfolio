@@ -1,11 +1,31 @@
 <template>
     <div class="container py-5" v-if="projects.length > 0">
-        <div class="pb-5 d-flex justify-content-center text-center">
-            <h1 class="color-red title w-50">I nostri Progetti <font-awesome-icon icon="fa-solid fa-book-open" /></h1>
+        <div class="d-flex justify-content-center text-center mb-5">
+            <div class="title">
+                <h1 class="color-red">I miei Progetti</h1>
+                <img class="project-pick" src="/src/images/projects-list.png">
+            </div>
         </div>
 
+        <!-- Buttons per flitrare -->
+        <div class="d-flex gap-3 align-items-center justify-content-center mb-3">
+
+            <div class="btn btn-sm main-btn-background text-light" v-for="type in types"
+                @click=" type.projects.length > 0 ? [fetchProjects(1, type.id), showBackBtn()] : showMessage()">
+                {{ type.name }}
+            </div>
+
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <span class="btn btn-sm main-btn-background text-light back-btn" :class="{ block: visible }"
+                @click="[fetchProjects(), this.visible = false]">Elimina filtri</span>
+        </div>
+
+        <!-- cards dei progetti -->
+
         <div class="d-flex gap-5 flex-wrap py-4 justify-content-center">
-            <ProjectCard v-for="project in projects" :project="project" :key="project.id" />
+            <ProjectCard v-for=" project  in  projects " :project="project" :key="project.id" />
         </div>
 
         <!-- PAGINATION -->
@@ -27,7 +47,7 @@
             <!-- pagina corrente - pagine totali -->
             <div class="d-flex gap-2 align-items-center">
 
-                <div class="d-flex gap-2 align-items-center" v-if="this.current_page > 1">
+                <div class="d-flex gap-2 align-items-center" v-if="this.current_page > 2">
                     <div class="btn main-btn-background text-light" @click="goToPageOne()">
                         <span>1</span>
                     </div>
@@ -41,7 +61,7 @@
                     <span>{{ this.current_page }}</span>
                 </div>
 
-                <span class="text-white-50">
+                <span class="text-white-50" v-if="this.current_page < this.last_page - 1">
                     ...
                 </span>
 
@@ -88,32 +108,51 @@ export default {
     data() {
         return {
             projects: [],
+            types: [],
             store: store,
             current_page: 1,
             last_page: 1,
+            currentTypeId: null,
+            visible: false
         }
     },
 
     methods: {
-        fetchProjects(page) {
-            axios.get(`${store.base_url}/projects?page=${page}`).then((res) => {
+        fetchProjects(page, typeId) {
+            axios.get(`${store.base_url}/projects?page=${page}`, { params: { type_id: typeId } }).then((res) => {
                 this.projects = res.data.projects.data;
-                console.log(res.data)
                 this.current_page = res.data.projects.current_page
                 this.last_page = res.data.projects.last_page
+                this.currentTypeId = typeId
+                console.log(res.data)
             })
+        },
+
+        fetchTypes() {
+            axios.get(`${store.base_url}/types`).then((res) => {
+                this.types = res.data.types
+                console.log(res.data)
+            })
+        },
+
+        showMessage() {
+            this.$router.push('/projects-not-found')
+        },
+
+        showBackBtn() {
+            this.visible = true
         },
 
         nextPage() {
             if (this.current_page < this.last_page) {
-                this.fetchProjects(this.current_page + 1)
+                this.fetchProjects(this.current_page + 1, this.currentTypeId)
                 this.scrollToTop()
             }
         },
 
         prevPage() {
             if (this.current_page > 1) {
-                this.fetchProjects(this.current_page - 1)
+                this.fetchProjects(this.current_page - 1, this.currentTypeId)
                 this.scrollToTop()
             }
         },
@@ -132,6 +171,7 @@ export default {
 
     created() {
         this.fetchProjects();
+        this.fetchTypes();
     }
 
 }
@@ -142,11 +182,23 @@ export default {
     background-color: #121212;
 }
 
-.dash {
-    width: 8px;
+.back-btn {
+    display: none;
 }
 
-// .disabled {
-//     border: none;
-// }
+.title {
+    position: relative;
+    width: 450px;
+}
+
+.project-pick {
+    width: 80px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.text-light.block {
+    display: block;
+}
 </style>

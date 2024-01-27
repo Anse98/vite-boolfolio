@@ -40,5 +40,6 @@ export default {
     background-color: rgba(24, 23, 23, 0.538);
     -webkit-box-shadow: 5px 5px 15px 5px #000000;
     box-shadow: 5px 5px 15px 5px #000000;
+    border: solid 0.5px tomato;
 }
 </style>

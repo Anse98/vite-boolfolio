@@ -91,7 +91,7 @@ export default {
         fetchTypes() {
             axios.get(`${store.base_url}/types`).then((res) => {
                 this.types = res.data.types
-                // console.log(res.data)
+                console.log(res.data)
             })
         },
 
