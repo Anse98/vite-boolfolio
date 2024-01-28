@@ -8,13 +8,15 @@
         </div>
 
         <!-- Buttons per flitrare -->
-        <div class="d-flex gap-3 align-items-center justify-content-center mb-3">
+        <div>
+            <ul class="d-flex gap-3 align-items-center justify-content-center mb-3">
 
-            <div class="btn btn-sm main-btn-background text-light" v-for="type in types"
-                @click=" type.projects.length > 0 ? [fetchProjects(1, type.id), showBackBtn()] : showMessage()">
-                {{ type.name }}
-            </div>
+                <li class="btn btn-sm main-btn-background text-light" v-for="type in types"
+                    @click=" type.projects.length > 0 ? [fetchProjects(1, type.id), showBackBtn()] : showMessage()">
+                    {{ type.name }}
+                </li>
 
+            </ul>
         </div>
 
         <div class="d-flex justify-content-end">

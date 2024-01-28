@@ -56,9 +56,11 @@ export default {
 
             <!-- Card -->
             <div class="card bg-dark-grey border-secondary" style="width: 36rem;">
-                <img v-if="project.thumb" :src="'http://127.0.0.1:8000/storage/' + project.thumb" class="card-img-top"
-                    alt="...">
-                <img v-else src="/src/images/no-image.jpg" alt="" class="card-img-top">
+                <div class="d-flex justify-content-center">
+                    <img v-if="project.thumb" :src="'http://127.0.0.1:8000/storage/' + project.thumb"
+                        class="card-img-top card-image" alt="...">
+                    <img v-else src="/src/images/no-image.jpg" alt="" class="card-img-top">
+                </div>
 
                 <div class="card-body text-center">
                     <h5 class="card-title color-red text-decoration-none">
@@ -121,9 +123,12 @@ export default {
                 <!-- Card -->
                 <div v-for="project in project.type.projects" :key="project.id" class="card bg-dark-grey border-secondary"
                     style="width: 20rem;">
-                    <img v-if="project.thumb" :src="'http://127.0.0.1:8000/storage/' + project.thumb" class="card-img-top"
-                        alt="...">
-                    <img v-else src="/src/images/no-image.jpg" alt="" class="card-img-top">
+
+                    <div class="d-flex justify-content-center">
+                        <img v-if="project.thumb" :src="'http://127.0.0.1:8000/storage/' + project.thumb"
+                            class="card-img-top" alt="...">
+                        <img v-else src="/src/images/no-image.jpg" alt="" class="card-img-top">
+                    </div>
 
                     <div class="card-body text-center">
                         <h5 class="card-title color-red text-decoration-none">
@@ -171,6 +176,10 @@ export default {
 <style scoped lang="scss">
 .list-group-item {
     border-color: gray;
+}
+
+.card-image {
+    width: 50%;
 }
 
 .spinner-container {

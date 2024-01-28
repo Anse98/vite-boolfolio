@@ -1,8 +1,9 @@
 <template>
     <section>
-        <div class="container text-center py-5 w-50 " v-if="types.length > 0">
-            <div class="">
-                <h1 class="color-red title">Tipi di progetto <font-awesome-icon icon="fa-solid fa-paperclip" /></h1>
+        <div class="container text-center py-5" v-if="types.length > 0">
+            <div class="relative-container d-flex justify-content-center align-items-center">
+                <h1 class="color-red title">Tipi di progetto</h1>
+                <img src="../../images/glasses.png" alt="" class="title-img">
             </div>
 
             <div class="container">
@@ -125,5 +126,9 @@ export default {
 <style scope lang="scss">
 .list-group-item {
     border-color: gray;
+}
+
+.title-img {
+    width: 200px;
 }
 </style>

@@ -9,7 +9,12 @@ export default {
     <section>
 
         <div class="container pb-5">
-            <h1 class="py-5 text-center color-red">Contattaci</h1>
+
+            <div class="d-flex justify-content-center align-items-center gap-3">
+                <h1 class="py-5 text-center color-red">Contattaci</h1>
+                <img src="../images/contact-us.png" alt="">
+            </div>
+
             <form method="POST" action="">
                 <div class="form-group mb-5">
                     <label for="name" class="form-label color-grey">Nome</label>
@@ -32,4 +37,8 @@ export default {
 </template>
 
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+img {
+    width: 100px;
+}
+</style>

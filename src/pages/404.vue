@@ -8,8 +8,8 @@ export default {
 <template>
     <section>
         <div class="container py-5 text-center text-white-50 ">
-            <div class="border-end border-start border-secondary">
-                <img src="/src/images/404.jpg" alt="" class="w-75 ">
+            <div>
+                <img src="/src/images/404.png" alt="" class="w-25 ">
             </div>
         </div>
         <div class="container text-center text-white-50 ">
